@@ -13,10 +13,6 @@ class RegisterController extends Controller
     {
         $user = User::query()->create($registerRequest->validated());
 
-        return response()->json([
-            'status' => true,
-            'message' => 'Registration successful',
-            'data' => $user
-        ], Response::HTTP_CREATED);
+        return response()->success('Registration successful', $user, Response::HTTP_CREATED);
     }
 }
